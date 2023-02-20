@@ -18,7 +18,7 @@ mason.setup {
 mason_lsp.setup {
   -- A list of servers to automatically install if they're not already installed
   ensure_installed = { "bashls", "cssls", "eslint", "graphql", "html", "jsonls", "lua_ls", "tailwindcss", "tsserver",
-    "vuels", "volar", "prismals" },
+    "vuels", "volar", "prismals", "gopls", "rust_analyzer" },
 
   -- Whether servers that are set up (via lspconfig) should be automatically installed if they're not already installed.
   -- This setting has no relation with the `ensure_installed` setting.
@@ -111,7 +111,7 @@ lspconfig.vuels.setup {
   on_attach = on_attach,
 }
 
-for _, server in ipairs { "bashls", "emmet_ls", "graphql", "html", "volar", "prismals" } do
+for _, server in ipairs { "bashls", "emmet_ls", "graphql", "html", "volar", "prismals", "gopls", "rust_analyzer" } do
   lspconfig[server].setup {
     on_attach = on_attach,
     capabilities = capabilities,
