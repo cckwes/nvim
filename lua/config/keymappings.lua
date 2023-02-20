@@ -131,3 +131,9 @@ end)
 -- Comment Box
 keymap("n", "<leader>ac", "<cmd>lua require('comment-box').lbox()<CR>", silent)
 keymap("v", "<leader>ac", "<cmd>lua require('comment-box').lbox()<CR>", silent)
+
+-- Custom
+keymap("i", "jj", "<ESC>", silent)
+keymap("i", "kk", "<ESC>", silent)
+keymap("i", ";;", "<C-o>A;", silent)
+keymap("i", ",,", "<C-o>A,", silent)
