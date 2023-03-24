@@ -10,6 +10,26 @@ return {
 			require("config.colorscheme")
 		end,
 	},
+	{
+		"NLKNguyen/papercolor-theme",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			-- load the colorscheme here
+			vim.cmd([[colorscheme tokyonight]])
+			require("config.colorscheme")
+		end,
+	},
+	{
+		"rebelot/kanagawa.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			-- load the colorscheme here
+			vim.cmd([[colorscheme tokyonight]])
+			require("config.colorscheme")
+		end,
+	},
 
 	{ "nvim-lua/plenary.nvim" },
 	{
