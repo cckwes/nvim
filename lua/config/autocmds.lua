@@ -34,6 +34,13 @@ vim.api.nvim_create_autocmd("BufEnter", { pattern = { "*test.js", "*test.ts", "*
 vim.api.nvim_create_autocmd("FileType", { pattern = "spectre_panel",
   callback = function() pwk.attach_spectre(0) end })
 
+-- Eslint on save
+vim.api.nvim_create_autocmd('BufWritePre', {
+  pattern = { '*.tsx', '*.ts', '*.jsx', '*.js' },
+  command = 'silent! EslintFixAll',
+  group = vim.api.nvim_create_augroup('MyAutocmdsJavaScripFormatting', {}),
+})
+
 -- Winbar (for nvim 0.8+)
 if vim.fn.has('nvim-0.8') == 1 then
   vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost" }, {
