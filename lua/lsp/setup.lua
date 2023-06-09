@@ -31,7 +31,9 @@ mason_lsp.setup({
     "prismals",
     "gopls",
     "rust_analyzer",
-    "pyright",
+    "pylsp",
+    "terraformls",
+    "tflint"
   },
   -- Whether servers that are set up (via lspconfig) should be automatically installed if they're not already installed.
   -- This setting has no relation with the `ensure_installed` setting.
@@ -81,6 +83,22 @@ if typescript_ok then
     },
   })
 end
+
+lspconfig.terraformls.setup{}
+lspconfig.tflint.setup{}
+
+lspconfig.pylsp.setup{
+  settings = {
+		pylsp = {
+			plugins = {
+				ruff = {
+					enabled = true,
+					extendSelect = { "I" },
+				},
+			}
+		}
+	}
+}
 
 lspconfig.tailwindcss.setup({
   capabilities = require("lsp.servers.tailwindcss").capabilities,
