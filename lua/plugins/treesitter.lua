@@ -1,7 +1,24 @@
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = {}, -- one of "all", or a list of languages
-  sync_install = false,            -- install languages synchronously (only applied to `ensure_installed`)
-  ignore_install = { "haskell" },  -- list of parsers to ignore installing
+  ensure_installed = {
+    "tsx",
+    "typescript",
+    "javascript",
+    "html",
+    "css",
+    "vue",
+    "astro",
+    "svelte",
+    "gitcommit",
+    "graphql",
+    "json",
+    "json5",
+    "lua",
+    "markdown",
+    "prisma",
+    "vim",
+  },          -- one of "all", or a list of languages
+  sync_install = false,           -- install languages synchronously (only applied to `ensure_installed`)
+  ignore_install = { "haskell" }, -- list of parsers to ignore installing
   highlight = {
     enable = true,
     -- disable = { "c", "rust" },  -- list of language that will be disabled

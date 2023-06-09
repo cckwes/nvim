@@ -25,6 +25,7 @@ mason_lsp.setup({
     "html",
     "jsonls",
     "lua_ls",
+    "prismals",
     "tailwindcss",
     "tsserver",
     "volar",
@@ -48,9 +49,12 @@ mason_lsp.setup({
 local lspconfig = require("lspconfig")
 
 local handlers = {
-      ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = EcoVim.ui.float.border }),
-      ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = EcoVim.ui.float.border }),
-      ["textDocument/publishDiagnostics"] = vim.lsp.with(
+  ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+    silent = true,
+    border = EcoVim.ui.float.border,
+  }),
+  ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = EcoVim.ui.float.border }),
+  ["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics,
     { virtual_text = EcoVim.lsp.virtual_text }
   ),
@@ -141,7 +145,8 @@ lspconfig.vuels.setup({
   filetypes = require("lsp.servers.vuels").filetypes,
   handlers = handlers,
   init_options = require("lsp.servers.vuels").init_options,
-  on_attach = on_attach,
+  on_attach = require("lsp.servers.vuels").on_attach,
+  settings = require("lsp.servers.vuels").settings,
 })
 
 for _, server in ipairs({ "bashls", "emmet_ls", "graphql", "html", "volar", "prismals", "gopls", "rust_analyzer" }) do
